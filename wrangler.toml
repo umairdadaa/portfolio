@@ -1,3 +1,0 @@
-kv_namespaces = [
-  { id = "CLOUDFLARE_API_TOKEN", binding="ca022ac8a89b8afadbd5c081e03619c4a9abd" }
-]
