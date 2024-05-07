@@ -62,7 +62,7 @@ export const Profile = ({ id, visible, sectionRef }) => {
                 secondary
                 className={styles.button}
                 data-visible={visible}
-                href="public\resume.pdf" // Replace "path/to/your/pdf/document.pdf" with the actual path to your PDF file
+                href="../public/resume.pdf" // Replace "path/to/your/pdf/document.pdf" with the actual path to your PDF file
                 target="_blank" // This ensures that the PDF opens in a new tab/window
               >
                 Explore My Resume
