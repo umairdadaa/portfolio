@@ -18,8 +18,13 @@ export const socialLinks = [
     icon: 'github',
   },
   {
-    label: 'gmail',
+    label: 'email',
     url: `${config.email}`,
     icon: 'email',
+  },
+  {
+    label: 'linkedin',
+    url: `${config.linkedin}`,
+    icon: 'linkedin',
   },
 ];
