@@ -1,3 +1,6 @@
+import React, { useEffect, useRef, useState } from 'react';
+import { Helmet } from 'react-helmet';
+import { Link } from 'react-router-dom';
 import gamestackTexture2Large from '~/assets/gamestack-list-large.jpg';
 import gamestackTexture2Placeholder from '~/assets/gamestack-list-placeholder.jpg';
 import gamestackTexture2 from '~/assets/gamestack-list.jpg';
@@ -15,7 +18,6 @@ import { baseMeta } from '~/utils/meta';
 import { Intro } from './intro';
 import { Profile } from './profile';
 import { ProjectSummary } from './project-summary';
-import { useEffect, useRef, useState } from 'react';
 import config from '~/config.json';
 import styles from './home.module.css';
 
@@ -93,6 +95,35 @@ export const Home = () => {
 
   return (
     <div className={styles.home}>
+      <Helmet>
+        <title>Designer + Developer - {config.name}</title>
+        <meta name="description" content="Design portfolio of a product designer working on web & mobile apps with a focus on motion, experience design, and accessibility." />
+        <meta name="keywords" content="Product Designer, Web Developer, Motion Design, Experience Design, Accessibility, Mobile Apps, Website Company, Mobile App Maker, Cheap Developer, Cheap Websites, Website for Cheap, App for cheap, custom software maker, web development, web dev	, IT company, uae developer, dubai, abu dhabi, uae, website wala, sasti website, expensive website, hardware, custom erp system, software maker, custom software, custom crm software, software, ios, react, react native, restaurant menu system, company management system, all in one developers" />
+        <link rel="canonical" href="http://www.yourwebsite.com" />
+        <meta property="og:title" content="Designer + Developer - Umair Dada" />
+        <meta property="og:description" content="Design portfolio of a product designer working on web & mobile apps with a focus on motion, experience design, and accessibility." />
+        <meta property="og:url" content="http://www.umairdada.com" />
+        <meta property="og:type" content="website" />
+        <script type="application/ld+json">
+          {`
+            {
+              "@context": "https://schema.org",
+              "@type": "Person",
+              "name": "Umair Dada",
+              "url": "http://www.umairdada.com",
+              "sameAs": [
+                "https://www.linkedin.com/in/umairdada/",
+                "http://www.github.com/umairdadaa"
+              ],
+              "jobTitle": "Product Designer",
+              "worksFor": {
+                "@type": "Organization",
+                "name": "Your Company"
+              }
+            }
+          `}
+        </script>
+      </Helmet>
       <Intro
         id="intro"
         sectionRef={intro}
@@ -127,7 +158,7 @@ export const Home = () => {
         title="Zikr: Quranic Dua Companion"
         description="Crafting a React Native app for Quranic dua tracking and reflection"
         buttonText="View Prototype"
-        buttonLink="https://shorturl.at/rtCUZ"
+        buttonLink="https://shorturl.at/ajbPA"
         model={{
           type: 'phone',
           alt: 'App login screen',
@@ -172,3 +203,5 @@ export const Home = () => {
     </div>
   );
 };
+
+// export default Home;
