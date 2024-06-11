@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react';
-import { Helmet } from 'react-helmet';
+import { Helmet, HelmetProvider } from 'react-helmet-async';
 import { Link } from 'react-router-dom';
 import gamestackTexture2Large from '~/assets/gamestack-list-large.jpg';
 import gamestackTexture2Placeholder from '~/assets/gamestack-list-placeholder.jpg';
@@ -44,7 +44,7 @@ export const links = () => {
 export const meta = () => {
   return baseMeta({
     title: 'Designer + Developer',
-    description: `Design portfolio of ${config.name} — a product designer working on web & mobile apps with a focus on motion, experience design, and accessibility.`,
+    description: `Design portfolio of Umair Dada — a product designer working on web & mobile apps with a focus on motion, experience design, and accessibility.`,
   });
 };
 
@@ -94,114 +94,116 @@ export const Home = () => {
   }, [visibleSections]);
 
   return (
-    <div className={styles.home}>
-      <Helmet>
-        <title>Designer + Developer - {config.name}</title>
-        <meta name="description" content="Design portfolio of a product designer working on web & mobile apps with a focus on motion, experience design, and accessibility." />
-        <meta name="keywords" content="Product Designer, Web Developer, Motion Design, Experience Design, Accessibility, Mobile Apps, Website Company, Mobile App Maker, Cheap Developer, Cheap Websites, Website for Cheap, App for cheap, custom software maker, web development, web dev	, IT company, uae developer, dubai, abu dhabi, uae, website wala, sasti website, expensive website, hardware, custom erp system, software maker, custom software, custom crm software, software, ios, react, react native, restaurant menu system, company management system, all in one developers" />
-        <link rel="canonical" href="http://www.yourwebsite.com" />
-        <meta property="og:title" content="Designer + Developer - Umair Dada" />
-        <meta property="og:description" content="Design portfolio of a product designer working on web & mobile apps with a focus on motion, experience design, and accessibility." />
-        <meta property="og:url" content="http://www.umairdada.com" />
-        <meta property="og:type" content="website" />
-        <script type="application/ld+json">
-          {`
-            {
-              "@context": "https://schema.org",
-              "@type": "Person",
-              "name": "Umair Dada",
-              "url": "http://www.umairdada.com",
-              "sameAs": [
-                "https://www.linkedin.com/in/umairdada/",
-                "http://www.github.com/umairdadaa"
-              ],
-              "jobTitle": "Product Designer",
-              "worksFor": {
-                "@type": "Organization",
-                "name": "Your Company"
+    <HelmetProvider>
+      <div className={styles.home}>
+        <Helmet>
+          <title>Designer + Developer - Umair Dada</title>
+          <meta name="description" content="Design portfolio of a product designer working on web & mobile apps with a focus on motion, experience design, and accessibility." />
+          <meta name="keywords" content="Product Designer, Web Developer, Motion Design, Experience Design, Accessibility, Mobile Apps, Website Company, Mobile App Maker, Cheap Developer, Cheap Websites, Website for Cheap, App for cheap, custom software maker, web development, web dev, IT company, uae developer, dubai, abu dhabi, uae, website wala, sasti website, expensive website, hardware, custom erp system, software maker, custom software, custom crm software, software, ios, react, react native, restaurant menu system, company management system, all in one developers" />
+          <link rel="canonical" href="http://www.umairdada.com" />
+          <meta property="og:title" content="Designer + Developer - Umair Dada" />
+          <meta property="og:description" content="Design portfolio of a product designer working on web & mobile apps with a focus on motion, experience design, and accessibility." />
+          <meta property="og:url" content="http://www.umairdada.com" />
+          <meta property="og:type" content="website" />
+          <script type="application/ld+json">
+            {`
+              {
+                "@context": "https://schema.org",
+                "@type": "Person",
+                "name": "Umair Dada",
+                "url": "http://www.umairdada.com",
+                "sameAs": [
+                  "https://www.linkedin.com/in/umairdada/",
+                  "http://www.github.com/umairdadaa"
+                ],
+                "jobTitle": "Product Designer",
+                "worksFor": {
+                  "@type": "Organization",
+                  "name": "Umair Dada - Talk The Taste"
+                }
               }
-            }
-          `}
-        </script>
-      </Helmet>
-      <Intro
-        id="intro"
-        sectionRef={intro}
-        scrollIndicatorHidden={scrollIndicatorHidden}
-      />
-      <ProjectSummary
-        id="project-1"
-        sectionRef={projectOne}
-        visible={visibleSections.includes(projectOne.current)}
-        index={1}
-        title="ProjectPro: Redefining Project Management"
-        description="Crafting a revolutionary platform to empower teams in creating and managing projects with unparalleled efficiency and effectiveness"
-        buttonText="View project"
-        buttonLink="/projects/smart-sparrow"
-        model={{
-          type: 'laptop',
-          alt: 'Smart Sparrow lesson builder',
-          textures: [
-            {
-              srcSet: `${sprTexture} 1280w, ${sprTextureLarge} 2560w`,
-              placeholder: sprTexturePlaceholder,
-            },
-          ],
-        }}
-      />
-      <ProjectSummary
-        id="project-2"
-        alternate
-        sectionRef={projectTwo}
-        visible={visibleSections.includes(projectTwo.current)}
-        index={2}
-        title="Zikr: Quranic Dua Companion"
-        description="Crafting a React Native app for Quranic dua tracking and reflection"
-        buttonText="View Prototype"
-        buttonLink="https://shorturl.at/ajbPA"
-        model={{
-          type: 'phone',
-          alt: 'App login screen',
-          textures: [
-            {
-              srcSet: `${gamestackTexture} 375w, ${gamestackTextureLarge} 750w`,
-              placeholder: gamestackTexturePlaceholder,
-            },
-            {
-              srcSet: `${gamestackTexture2} 375w, ${gamestackTexture2Large} 750w`,
-              placeholder: gamestackTexture2Placeholder,
-            },
-          ],
-        }}
-      />
-      <ProjectSummary
-        id="project-3"
-        sectionRef={projectThree}
-        visible={visibleSections.includes(projectThree.current)}
-        index={3}
-        title="Garage: Your Fashion Haven"
-        description="Find your style essentials and statement pieces at Garage. Explore our curated collection for on-trend looks at unbeatable prices."
-        buttonText="View project"
-        buttonLink="/projects/slice"
-        model={{
-          type: 'laptop',
-          alt: 'Annotating a biomedical image in the Slice app',
-          textures: [
-            {
-              srcSet: `${sliceTexture} 800w, ${sliceTextureLarge} 1920w`,
-              placeholder: sliceTexturePlaceholder,
-            },
-          ],
-        }}
-      />
-      <Profile
-        sectionRef={details}
-        visible={visibleSections.includes(details.current)}
-        id="details"
-      />
-      <Footer />
-    </div>
+            `}
+          </script>
+        </Helmet>
+        <Intro
+          id="intro"
+          sectionRef={intro}
+          scrollIndicatorHidden={scrollIndicatorHidden}
+        />
+        <ProjectSummary
+          id="project-1"
+          sectionRef={projectOne}
+          visible={visibleSections.includes(projectOne.current)}
+          index={1}
+          title="ProjectPro: Redefining Project Management"
+          description="Crafting a revolutionary platform to empower teams in creating and managing projects with unparalleled efficiency and effectiveness"
+          buttonText="View project"
+          buttonLink="/projects/smart-sparrow"
+          model={{
+            type: 'laptop',
+            alt: 'Smart Sparrow lesson builder',
+            textures: [
+              {
+                srcSet: `${sprTexture} 1280w, ${sprTextureLarge} 2560w`,
+                placeholder: sprTexturePlaceholder,
+              },
+            ],
+          }}
+        />
+        <ProjectSummary
+          id="project-2"
+          alternate
+          sectionRef={projectTwo}
+          visible={visibleSections.includes(projectTwo.current)}
+          index={2}
+          title="Zikr: Quranic Dua Companion"
+          description="Crafting a React Native app for Quranic dua tracking and reflection"
+          buttonText="View Prototype"
+          buttonLink="https://shorturl.at/rtCUZ"
+          model={{
+            type: 'phone',
+            alt: 'App login screen',
+            textures: [
+              {
+                srcSet: `${gamestackTexture} 375w, ${gamestackTextureLarge} 750w`,
+                placeholder: gamestackTexturePlaceholder,
+              },
+              {
+                srcSet: `${gamestackTexture2} 375w, ${gamestackTexture2Large} 750w`,
+                placeholder: gamestackTexture2Placeholder,
+              },
+            ],
+          }}
+        />
+        <ProjectSummary
+          id="project-3"
+          sectionRef={projectThree}
+          visible={visibleSections.includes(projectThree.current)}
+          index={3}
+          title="Garage: Your Fashion Haven"
+          description="Find your style essentials and statement pieces at Garage. Explore our curated collection for on-trend looks at unbeatable prices."
+          buttonText="View project"
+          buttonLink="/projects/slice"
+          model={{
+            type: 'laptop',
+            alt: 'Annotating a biomedical image in the Slice app',
+            textures: [
+              {
+                srcSet: `${sliceTexture} 800w, ${sliceTextureLarge} 1920w`,
+                placeholder: sliceTexturePlaceholder,
+              },
+            ],
+          }}
+        />
+        <Profile
+          sectionRef={details}
+          visible={visibleSections.includes(details.current)}
+          id="details"
+        />
+        <Footer />
+      </div>
+    </HelmetProvider>
   );
 };
 
-// export default Home;
+export default Home;
