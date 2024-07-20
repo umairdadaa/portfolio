@@ -62,7 +62,7 @@ export const Profile = ({ id, visible, sectionRef }) => {
                 secondary
                 className={styles.button}
                 data-visible={visible}
-                href="https://1drv.ms/b/s!AiJapVt541tSh-psuTwze0SDW-_eyA?e=stYiCW"
+                href="https://1drv.ms/b/s!AiJapVt541tSjsl0daX-ylzT2p2dSg"
                 target="_blank" // This ensures that the PDF opens in a new tab/window
               >
                 Explore My Resume
